@@ -4,7 +4,7 @@ int bh = 200;
 float bx = width/2;
 float by = 0;
 float bspeed = 3;
-int bosshp = 100;
+int bosshp;
 
 void boss() {
   image(bossImg, bx, by, bw, bh);

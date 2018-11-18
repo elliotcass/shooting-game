@@ -4,6 +4,7 @@ int totalcount;
 boolean gameover;
 int storycount = 0;
 boolean firsttimeplay = true;
+boolean firearms = false;
 int stagecount1, stagecount2;
 
 void setup() {
@@ -33,22 +34,26 @@ void setup() {
 
   //robot
   for (int i=0; i<robottotal; i++) {
-    imgRobot[i]=loadImage("robot"+i+".png"); 
-    dx[i] =random(-2,2);
+    imgRobot[i]=loadImage("robot"+i+".png");
+    dx[i] =random(-2, 2);
     dy[i] =1;
     rx[i] =random(0, width);
     ry[i] =0;
     rz[i] =random(-5, -2);
   }
 
+  //bosshp
+  bosshp = 100;
+  
   //count
   life=3;
   int militarypower = robottotal;
   float bosshp = 30;
   gameover = false;
 
-  //1=mouse -1=keyboard
-  //controlmode=1;
+  //shot
+  shottotal = 20;
+  firedNum =0;
 
   //firsttimeplay check
   if (firsttimeplay==true) {
@@ -62,12 +67,14 @@ void draw() {
 
   if (life==0) {
     stage=5;
-  } 
+  }
   if (stage==0) {
+    firearms = false;
     storyscene();
   } else if (stage==1) {
     firsttimeplay = false;
     startscene();
+    firearms = false;
   } else if (stage==2) {
     starbackground();
     stagecount1 = stagecount1 +1;
@@ -75,6 +82,7 @@ void draw() {
       textSize(80);
       text("GAME start in "+stagecount1/-60, 250, height/2);
     } else {
+      firearms = true;
       totalcount = totalcount +1;
       jet();
       robots();
@@ -87,6 +95,7 @@ void draw() {
   } else if (stage==3) {
     starbackground();
     stagecount2 = stagecount2 +1;
+    firearms = true;
     jet();
     shot();
     robots();
@@ -105,9 +114,11 @@ void draw() {
   } else if (stage==4) {
     winscene();
     gameover=true;
+    firearms = false;
   } else if (stage==5) {
     losescene();
     gameover=true;
+    firearms = false;
   }
 }
 

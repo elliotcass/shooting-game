@@ -9,7 +9,7 @@ void keyPressed() {
   if (key==' ' && firedNum==20){
   shottotal = 20;
   firedNum =0;
-  }
+  }}
 //  if (key==CODED){
 //  if(keyCode==SPACE){
 //    stage=stage++;}
@@ -17,5 +17,3 @@ void keyPressed() {
 
   // if (key=='tab'){
   // controlmode = -controlmode;}
-}
-

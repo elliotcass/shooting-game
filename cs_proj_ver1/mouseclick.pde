@@ -1,5 +1,5 @@
 void mousePressed() {
-  if (firedNum<shottotal) {   
+  if (firedNum<shottotal && firearms == true) {   
     shotx[firedNum] = mouseX - jw/2;
     shoty[firedNum] = jy- jw/2;
     firedNum = firedNum +1;

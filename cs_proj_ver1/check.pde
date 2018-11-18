@@ -6,6 +6,7 @@ void checklife() {
       life = life-1;
       rx[i] =random(0, width);
       ry[i]=0;
+      background(255,0,0);
     }
   }
 }
